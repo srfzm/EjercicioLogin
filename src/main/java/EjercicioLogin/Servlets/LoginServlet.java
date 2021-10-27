@@ -34,6 +34,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		HibernateUtil.logger.info("Acceso al metodo doGet de LoginServlet, redirigiendo la ejecucion a doPost");
 		doPost(request, response);
 	}
 
@@ -43,16 +44,20 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+		HibernateUtil.logger.info("Acceso al metodo doGet de LoginServlet.");
 		String nombre = request.getParameter("user");
 		String clave = request.getParameter("psw");
 		if(nombre==null || clave==null) {
+			HibernateUtil.logger.info("Falta el nombre o la contraseña, por lo quese manda al HTML de login.");
 			response.sendRedirect("login.html");
 		} else {
 			Session s = HibernateUtil.getSessionFactory().openSession();
 			Usuarios us = UsuariosDAO.getUsuarioLogin(s, nombre, clave);
 			if(us==null) {
+				HibernateUtil.logger.info("No se a encontrado el usuario que coincida con los datos del formulario, por lo que se redirige de nuevo al formulario.");
 				response.sendRedirect("login.html");
 			} else {
+				HibernateUtil.logger.info("Login correcto del usuario "+us.getNombre()+".");
 				response.getWriter().println("Login correcto.");
 			}
 		}
