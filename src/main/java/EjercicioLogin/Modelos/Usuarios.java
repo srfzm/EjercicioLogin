@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class Usuarios implements java.io.Serializable {
 
 	private Integer id;
-	private Roles roles;
+	private Integer id_rol;
 	private String email;
 	private String clave;
 	private String nombre;
@@ -34,9 +34,9 @@ public class Usuarios implements java.io.Serializable {
 	public Usuarios() {
 	}
 
-	public Usuarios(Roles roles, String email, String clave, String nombre, String apellido1, String apellido2,
+	public Usuarios(Integer id_rol, String email, String clave, String nombre, String apellido1, String apellido2,
 			String direccion, String localidad, String provincia, String telefono, String dni) {
-		this.roles = roles;
+		this.id_rol = id_rol;
 		this.email = email;
 		this.clave = clave;
 		this.nombre = nombre;
@@ -61,14 +61,13 @@ public class Usuarios implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_rol")
-	public Roles getRoles() {
-		return this.roles;
+	@Column(name = "id_rol")
+	public Integer getId_rol() {
+		return this.id_rol;
 	}
 
-	public void setRoles(Roles roles) {
-		this.roles = roles;
+	public void setId_rol(Integer id_rol) {
+		this.id_rol = id_rol;
 	}
 
 	@Column(name = "email")

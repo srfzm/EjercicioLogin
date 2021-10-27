@@ -21,14 +21,12 @@ public class Roles implements java.io.Serializable {
 
 	private Integer id;
 	private String rol;
-	private Set<Usuarios> usuarioses = new HashSet<Usuarios>(0);
 
 	public Roles() {
 	}
 
-	public Roles(String rol, Set<Usuarios> usuarioses) {
+	public Roles(String rol) {
 		this.rol = rol;
-		this.usuarioses = usuarioses;
 	}
 
 	@Id
@@ -51,14 +49,4 @@ public class Roles implements java.io.Serializable {
 	public void setRol(String rol) {
 		this.rol = rol;
 	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "roles")
-	public Set<Usuarios> getUsuarioses() {
-		return this.usuarioses;
-	}
-
-	public void setUsuarioses(Set<Usuarios> usuarioses) {
-		this.usuarioses = usuarioses;
-	}
-
 }
