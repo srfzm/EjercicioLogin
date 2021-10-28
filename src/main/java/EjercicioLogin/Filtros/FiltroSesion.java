@@ -41,7 +41,8 @@ public class FiltroSesion implements Filter {
 		HttpServletRequest req = (HttpServletRequest)request;
 		// pass the request along the filter chain
 		HttpSession sesion = req.getSession(false);
-		if(sesion!=null || req.getRequestURI().endsWith("Login"))
+		//incluido login.html para evitar error en navegador por redirigir muchas veces
+		if(sesion!=null || req.getRequestURI().endsWith("Login") || req.getRequestURI().endsWith("login.html") )
 			chain.doFilter(request, response);
 		else
 			((HttpServletResponse)response).sendRedirect("login.html");
