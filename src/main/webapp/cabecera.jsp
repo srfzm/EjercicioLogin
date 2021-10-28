@@ -5,7 +5,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%! Usuarios us = null;
-LocalDateTime fecha = LocalDateTime.now();
 DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss 'del' dd-MM-yyyy");%>
 <!DOCTYPE html>
 <html>
@@ -25,7 +24,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss 'del' dd-MM-yy
 	</h1>
 	<h2>
 		Fecha:
-		<%= formato.format(fecha)%>
+		<%= formato.format((LocalDateTime)session.getAttribute("fecha"))%>
 	</h2>
 </body>
 </html>

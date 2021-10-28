@@ -12,7 +12,7 @@ public class RolesDAO {
 
 	public static void insertRoles(Session s, Roles roles) {
 		s.save(roles);
-		HibernateUtil.logger.info("Realizada inserccion.");
+		HibernateUtil.logger.info("Realizada inserccion del rol.");
 	}
 	
 	public static ArrayList<Roles> getLista(Session s) {

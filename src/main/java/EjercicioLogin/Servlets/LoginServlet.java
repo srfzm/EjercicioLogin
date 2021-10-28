@@ -1,6 +1,8 @@
 package EjercicioLogin.Servlets;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -62,6 +64,9 @@ public class LoginServlet extends HttpServlet {
 				//response.getWriter().println("Login correcto.");
 				HttpSession sesion = request.getSession();
 				sesion.setAttribute("usuario", us);
+				s.close();
+				LocalDateTime fecha = LocalDateTime.now();
+				sesion.setAttribute("fecha", fecha);
 				request.getRequestDispatcher("menu.jsp").forward(request, response);
 			}
 		}
