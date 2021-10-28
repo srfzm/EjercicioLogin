@@ -1,7 +1,12 @@
-<%@page import="EjercicioLogin.Modelos.Usuarios"%>
+<%@page
+	import="EjercicioLogin.Modelos.Usuarios, java.time.format.DateTimeFormatter, java.time.LocalDateTime
+	
+"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%! Usuarios us = null;%>
+<%! Usuarios us = null;
+LocalDateTime fecha = LocalDateTime.now();
+DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss 'del' dd-MM-yyyy");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,5 +23,9 @@
 		<%=us.getApellido1() + " "%>
 		<%=us.getApellido2()%>
 	</h1>
+	<h2>
+		Fecha:
+		<%= formato.format(fecha)%>
+	</h2>
 </body>
 </html>
