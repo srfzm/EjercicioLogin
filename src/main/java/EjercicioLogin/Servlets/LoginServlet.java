@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
 
@@ -58,7 +59,10 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("login.html");
 			} else {
 				HibernateUtil.logger.info("Login correcto del usuario "+us.getNombre()+".");
-				response.getWriter().println("Login correcto.");
+				//response.getWriter().println("Login correcto.");
+				HttpSession sesion = request.getSession();
+				sesion.setAttribute("usuario", us);
+				request.getRequestDispatcher("menu.jsp").forward(request, response);
 			}
 		}
 	}
