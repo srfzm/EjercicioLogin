@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<body>
+<%@ include file="cabecera.jsp" %>
     <form action="/EjercicioLogin/AltaRol" method="post">
         <fieldset class="center">
             <legend>Nuevo Rol:</legend>
