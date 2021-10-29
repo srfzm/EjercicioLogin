@@ -10,7 +10,7 @@ import EjercicioLogin.Utilidades.HibernateUtil;
 
 public class CategoriasDAO {
 
-	public static void insertRoles(Session s, Categorias categoria) {
+	public static void insertCategoria(Session s, Categorias categoria) {
 		s.save(categoria);
 		HibernateUtil.logger.info("Realizada inserccion de la categoria.");
 	}
