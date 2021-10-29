@@ -12,18 +12,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import EjercicioLogin.Modelos.Usuarios;
 import EjercicioLogin.Utilidades.HibernateUtil;
 
 /**
- * Servlet Filter implementation class FiltroSesion
+ * Servlet Filter implementation class FiltroControlAlta
  */
-@WebFilter(filterName="FiltroSesion") //url definida en web.xml para tener orden de ejecucion entre filtros
-public class FiltroSesion implements Filter {
+@WebFilter(filterName="FiltroControlAlta")
+public class FiltroControlAlta implements Filter {
 
     /**
      * Default constructor. 
      */
-    public FiltroSesion() {
+    public FiltroControlAlta() {
         // TODO Auto-generated constructor stub
     }
 
@@ -40,15 +41,17 @@ public class FiltroSesion implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-		HibernateUtil.logger.info("Accediendo al filtro de sesion.");
+
+		// pass the request along the filter chain
+		HibernateUtil.logger.info("Accediendo al filtro de control del servlet AltaRolServlet.");
 		HttpServletRequest req = (HttpServletRequest)request;
 		// pass the request along the filter chain
 		HttpSession sesion = req.getSession(false);
 		//incluido login.html para evitar error en navegador por redirigir muchas veces
-		if(sesion!=null || req.getRequestURI().endsWith("Login") || req.getRequestURI().endsWith("login.html") || req.getRequestURI().contains("css"))
+		if(((Usuarios)sesion.getAttribute("usuario")).getId_rol()==1)
 			chain.doFilter(request, response);
 		else
-			((HttpServletResponse)response).sendRedirect("login.html");
+			req.getRequestDispatcher("menu.jsp").forward(request, response);
 	}
 
 	/**
