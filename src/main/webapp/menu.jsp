@@ -20,7 +20,7 @@
 			<input type="submit" value="Crear nuevo rol">
 </form>
 <br>
-<form action="nuevaCategorias.jsp" method="post">
+<form action="nuevaCategoria.jsp" method="post">
 			<input type="submit" value="Crear nueva categoria">
 </form>
 </body>
