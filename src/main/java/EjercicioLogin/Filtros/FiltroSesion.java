@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import EjercicioLogin.Utilidades.HibernateUtil;
+
 /**
  * Servlet Filter implementation class FiltroSesion
  */
@@ -38,6 +40,7 @@ public class FiltroSesion implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
+		HibernateUtil.logger.info("Accediendo al filtro de sesion.");
 		HttpServletRequest req = (HttpServletRequest)request;
 		// pass the request along the filter chain
 		HttpSession sesion = req.getSession(false);
