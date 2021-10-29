@@ -9,11 +9,11 @@
 <body>
 <%@ include file="cabecera.jsp" %>
 <form action="listadoRoles.jsp" method="post" class="tam">
-			<input type="submit" value="Listado de Roless">
+			<input type="submit" value="Listado de Roles">
 </form>
 <br>
 <form action="altaRol.jsp" method="post" class="tam">
-			<input type="submit" value="Dar de alta rol">
+			<input type="submit" value="Crear nuevo rol">
 </form>
 </body>
 </html>

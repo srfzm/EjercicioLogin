@@ -42,7 +42,7 @@ public class FiltroSesion implements Filter {
 		// pass the request along the filter chain
 		HttpSession sesion = req.getSession(false);
 		//incluido login.html para evitar error en navegador por redirigir muchas veces
-		if(sesion!=null || req.getRequestURI().endsWith("Login") || req.getRequestURI().endsWith("login.html") )
+		if(sesion!=null || req.getRequestURI().endsWith("Login") || req.getRequestURI().endsWith("login.html") || req.getRequestURI().contains("css"))
 			chain.doFilter(request, response);
 		else
 			((HttpServletResponse)response).sendRedirect("login.html");

@@ -16,8 +16,5 @@
 			<input type="submit" value="Submit">
         </fieldset>
     </form>
-    <form action="menu.jsp" method="post">
-			<input type="submit" value="Volver">
-	</form>
 </body>
 </html>

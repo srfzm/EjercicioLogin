@@ -26,5 +26,12 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss 'del' dd-MM-yy
 		Fecha:
 		<%= formato.format((LocalDateTime)session.getAttribute("fecha"))%>
 	</h2>
+	<br>
+	<form action="/EjercicioLogin/Logout" method="post">
+			<input type="submit" value="Cerrar Sesion">
+	</form>
+	<br>
+	<input type=<%= (request.getRequestURI().endsWith("menu.jsp")) ? "hidden" : "submit" %> value="Volver" onclick="window.history.go(-1)">
+	<br>
 </body>
 </html>

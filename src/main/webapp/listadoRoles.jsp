@@ -29,9 +29,5 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<br>
-	<form action="menu.jsp" method="post">
-		<input type="submit" value="Volver">
-	</form>
 </body>
 </html>
