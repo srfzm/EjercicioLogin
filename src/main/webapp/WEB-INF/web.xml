@@ -17,10 +17,18 @@
 	    <filter-name>FiltroControl</filter-name>
 	    <url-pattern>/altaRol.jsp</url-pattern>
 	</filter-mapping>
-		<filter-mapping>
+	<filter-mapping>
 	    <filter-name>FiltroControlAlta</filter-name>
 	    <url-pattern>/AltaRol</url-pattern>
 	</filter-mapping>
+	<filter-mapping>
+	    <filter-name>FiltroControlServNCategoria</filter-name>
+	    <url-pattern>/NuevaCategoria</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+	    <filter-name>FiltroControlJSPCategoria</filter-name>
+	    <url-pattern>/nuevaCategoria.jsp</url-pattern>
+	</filter-mapping>	
   <session-config>
     <session-timeout>10</session-timeout>
   </session-config>
